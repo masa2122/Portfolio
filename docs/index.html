@@ -5,53 +5,72 @@
     <meta charset="UTF-8">
     <title>Portfolio</title>
     <link href="index.css" rel="stylesheet" type="text/css">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body>
-    <nav>
-        <ul class="menu">
-            <li class="menu"><a href="#about">About</a></li>
-            <li class="menu"><a href="#skill">Skill</a></li>
-            <li class="menu"><a href="#works">Works</a></li>
-            <li class="menu"><a href="#contact">Contact</a></li>
+    <header class="text-gray-600 body-font bg-orange-200">
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+          <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+            <!-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-yellow-500 rounded-full" viewBox="0 0 24 24">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+            </svg> -->
+            <span class="ml-3 text-xl">Portfolio</span>
+          </a>
+          <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
+            <a class="mr-5 hover:text-gray-900">About</a>
+            <a class="mr-5 hover:text-gray-900">Skill</a>
+            <a class="mr-5 hover:text-gray-900">Works</a>
+            <a class="mr-5 hover:text-gray-900">Contact</a>
+          </nav>
+          <button class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">Button
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5l7 7-7 7"></path>
+            </svg>
+          </button>
+        </div>
+    </header>
+
+    <div class="container mx-auto w-3/4">
+        <div class="flex flex-wrap">
+            <img class="w-full md:w-1/2 p-2" src="IMG_6925.jpg">
+            <img class="w-full md:w-1/2 p-2" src="img2.jpg">
+        </div>
+        <h3 class="text-6xl">About</h3>
+        <ul>
+            <li>Katsumori Okazaki</li>
+            <li>Faculty of Data Science, Musashino University</li>
+            <li>趣味：読書</li>
+            <li>目標：世界に通用するサービスを作れるようになる</li>
         </ul>
-    </nav>
 
-    <img src="IMG_6925.jpg" width="500px">
+        <h3 class="text-6xl">Skill</h3>
+        <ul>
+            <li>HTML,css</li>
+            <li>PHP</li>
+            <li>Python</li>
+            <li>機械学習</li>
+        </ul>
 
-    <h3 id="about">About</h3>
-    <ul>
-        <li>Katsumori Okazaki</li>
-        <li>Faculty of Data Science, Musashino University</li>
-        <li>趣味：読書</li>
-        <li>目標：世界に通用するサービスを作れるようになる</li>
-    </ul>
+        <h3 class="text-6xl">research</h3>
+        <ul>
+            <li>phpを使ってwebサービの作成</li>
+            <li>機械学習の本を実際に手を動かしながら勉強しています</li>
+        </ul>
 
-    <h3 id="skill">Skill</h3>
-    <ul>
-        <li>HTML,css</li>
-        <li>PHP</li>
-        <li>Python</li>
-        <li>機械学習</li>
-    </ul>
+        <h3 class="text-6xl">Works</h3>
+        <ul>
+            <li>次回課題</li>
+        </ul>
 
-    <h3 id="research">research</h3>
-    <ul>
-        <li>phpを使ってwebサービの作成</li>
-        <li>機械学習の本を実際に手を動かしながら勉強しています</li>
-    </ul>
+        <h3 class="text-6xl">Contact</h3>
+        <ul>
+            <li>次回課題</li>
+        </ul>
 
-    <h3 id="works">Works</h3>
-    <ul>
-        <li>次回課題</li>
-    </ul>
-
-    <h3 id="contact">Contact</h3>
-    <ul>
-        <li>次回課題</li>
-    </ul>
-
-    <footer>©︎2022 Katsumori Okazaki</footer>
+        <footer>©︎2022 Katsumori Okazaki</footer>
+    </div>
 </body>
 
 </html>
