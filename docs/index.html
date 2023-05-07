@@ -16,12 +16,26 @@
   <script src="https://kit.fontawesome.com/23e3f60429.js" crossorigin="anonymous"></script>
   <!-- aos.cssを読み込む -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <!-- aos. jsファイルを読み込む -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
 </head>
 
 <body>
-
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Katsumori's portfolio</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link active" aria-current="page" href="#scroll-1">About</a>
+          <a class="nav-link active" href="#scroll-2">Skill</a>
+          <a class="nav-link active" href="#scroll-3">Internship</a>
+          <a class="nav-link active" href="#scroll-4">Research</a>
+          <a class="nav-link active" href="#scroll-5">Qualification</a>
+        </div>
+      </div>
+    </div>
+  </nav>
   <!-- <div class="container"> -->
   <!--自己紹介-->
   <div class="fixed-background background-1">
@@ -30,7 +44,7 @@
     </div>
   </div>
 
-  <div class="scroll-background background-color-1 p-5" id="scroll-1" data-aos="fade-right">
+  <div class="scroll-background background-color-1 p-5" data-aos="fade-up">
     <div class="container">
       <div class="row">
         <div class="col-md-3">
@@ -45,6 +59,10 @@
               将来はデータサインティストを目指しています。<br>
               その目標の達成をするために、日々自己研鑽に励んでいます！
             </p>
+            <a href="https://twitter.com/masa_11_24"><span class="px-2 py-1 mx-1 border border-2 rounded-pill small btn btn-hover" style="border-color: rgb(33, 159, 148)!important;"><i class="fa-brands fa-twitter" style="color: #75c3ff;"></i>Twitter</span></a>
+            <a href="https://github.com/masa2122"><span class="px-2 py-1 mx-1 border border-2 rounded-pill small btn btn-hover" style="border-color: rgb(33, 159, 148)!important;"><i class="fa-brands fa-github"></i>Github</span></a>
+            <a href="https://qiita.com/masa1124"><span class="px-2 py-1 mx-1 border border-2 rounded-pill small btn btn-hover" style="border-color: rgb(33, 159, 148)!important;">Qiita</span></a>
+            
           </div>
         </div>
       </div>
@@ -52,18 +70,18 @@
   </div>
     <!--------------------------------------------------------------------->
 
-  <div class="fixed-background background-2">
+  <div class="fixed-background background-2" id="scroll-1">
     <div class="w-100 vh-100 opa2 d-flex justify-content-center align-items-center">
-      <h1>About me.</h1>
+      <h1 data-aos="zoom-in-up">About me.</h1>
     </div>
   </div>
 
-  <div class="scroll-background background-color-2 p-5">
+  <div class="scroll-background background-color-2 p-5" data-aos="fade-right">
     <h2 class="text-center">目標</h2>
     <p class="text-center">
       AI×なにかで世の中の役に立つ物を作っていく！<br>
-      プログラミング分野に強いデータサイエンティストなることです！<br>
-      今後は、深層学習に関する勉強を中心にやっていきたいと考えています。
+      プログラミング分野に強いデータサイエンティストなること！<br>
+      今後は、深層学習に関する勉強を中心にやっていきたいです。
     </p>
 
 
@@ -94,25 +112,26 @@
           <span class="visually-hidden">Next</span>
         </button>
       </div>
+    
+      <p class="w-75 m-auto mt-4">
+        趣味はカフェ、ダーツ、旅行、運動、パスタ作りです！<br>
+        ダーツはマイダーツを持っているほどダーツにハマっています。<br>
+        パスタを作り始めたのは飲食店でのアルバイト経験を活かし自宅でも作ってみたことがきっかけです！<br>
+        初めて作ったパスタはアーリオオーリオです。<br>
+        そこから、ペペロンチーノ→明太子パスタ→トマトクリーム→ジェノベーゼ→クリームパスタ<br>
+        と様々な物を作ってきました！
+      </p>
     </div>
-    <p class="w-75 m-auto mt-4">
-      趣味はカフェ、ダーツ、旅行、運動、パスタ作りです！<br>
-      ダーツはマイダーツを持っているほどダーツにハマっています。<br>
-      パスタを作り始めたのは飲食店でのアルバイト経験を活かし自宅でも作ってみたことがきっかけです！<br>
-      初めて作ったパスタはアーリオオーリオです。<br>
-      そこから、ペペロンチーノ→明太子パスタ→トマトクリーム→ジェノベーゼ→クリームパスタ<br>
-      と様々な物を作ってきました！
-    </p>
   </div>
 
       <!--------------------------------------------------------------------->
-  <div class="fixed-background background-3 d-flex justify-content-center align-items-center">
+  <div class="fixed-background background-3 d-flex justify-content-center align-items-center" id="scroll-2">
     <div class="w-100 vh-100 opa3 d-flex justify-content-center align-items-center">
-      <h1>Programming skills.</h1>
+      <h1 data-aos="zoom-in-up">Programming skills.</h1>
     </div>
   </div>
 
-  <div class="py-5 scroll-background background-color-3">
+  <div class="py-5 scroll-background background-color-3" data-aos="fade-left">
     <div class="container">
       <ul class="p-3 list-group list-group-flush list-unstyled bg-white">
         <li><i class="fa-solid fa-star fa-spin" style="color: #ffc800;"></i>　　　　独学</li>
@@ -121,24 +140,24 @@
         <li><i class="fa-solid fa-star fa-spin" style="color: #ffc800;"></i><i class="fa-solid fa-star fa-spin" style="color: #ffc800;"></i><i class="fa-solid fa-star fa-spin" style="color: #ffc800;"></i><i class="fa-solid fa-star fa-spin" style="color: #ffc800;"></i>　インターンで使用</li>
       </ul>
       <img src="./assets/img/skill.png" class="w-100">
-      <p class="my-4">学校の授業やインターン、独学で知識を増やしてきました！<br>
+      <p class="w-75 m-auto my-4">学校の授業やインターン、独学で知識を増やしてきました！<br>
       Pythonが得意です。授業や研究、インターンで使用しています。</p>
     </div>
   </div>
       <!--------------------------------------------------------------------->
 
-  <div class="fixed-background background-4 d-flex justify-content-center align-items-center">
+  <div class="fixed-background background-4 d-flex justify-content-center align-items-center" id="scroll-3">
     <div class="w-100 vh-100 opa3 d-flex justify-content-center align-items-center">
-      <h1>Internship.</h1>
+      <h1 data-aos="zoom-in-up">Internship.</h1>
     </div>
   </div>
-  <div class="scroll-background background-color-4 p-5">
+  <div class="scroll-background background-color-4 p-5" data-aos="fade-right">
     <div class="row">
-      <div class="col-3 position-relative">
-        <h4 class="position-absolute mt-5 end-0">2022年9月</h4>
-        <h4 class="position-absolute bottom-0 end-0">2022年12月</h4>
+      <div class="col-2 col-md-3 position-relative">
+        <h4 class="position-absolute mt-5 end-0">2022/9</h4>
+        <h4 class="position-absolute bottom-0 end-0">2022/12</h4>
       </div>
-      <div class="col-9">
+      <div class="col-10 col-md-9">
         <h2 class="px-5">株式会社QUICK</h2>
         <div class="px-2 py-1" style="border-left:solid #fff 1px;">
           <p>学校紹介のインターンをやらせていただきました。<br>
@@ -156,11 +175,11 @@
         </div>
       </div>
       
-      <div class="col-3 my-5 position-relative">
-        <h4 class="position-absolute mt-5 end-0">2023年2月</h4>
+      <div class="col-2 col-md-3 my-5 position-relative">
+        <h4 class="position-absolute mt-5 end-0">2023/2</h4>
         <h4 class="position-absolute bottom-0 end-0">現在</h4>
       </div>
-      <div class="col-9 my-5">
+      <div class="col-10 col-md-9 my-5">
         <h2 class="px-5">Trustart株式会社</h2>
         <!-- internでやっていることを詳しく書く -->
         <div class="px-2 py-1" style="border-left:solid #fff 1px;">
@@ -178,13 +197,13 @@
     </div>
   </div>
 
-  <div class="fixed-background background-5 d-flex justify-content-center align-items-center">
+  <div class="fixed-background background-5 d-flex justify-content-center align-items-center" id="scroll-4">
     <div class="w-100 vh-100 opa4 d-flex justify-content-center align-items-center">
-      <h1>Research to date.</h1>
+      <h1 data-aos="zoom-in-up">Research to date.</h1>
     </div>
   </div>
 
-  <div class="scroll-background background-color-5 p-5">
+  <div class="scroll-background background-color-5 p-5" data-aos="fade-left">
     <div class="container">
       <h1 class="mt-5 mb-4 border-bottom">1年次</h1>
       <div class="card mb-3">
@@ -252,7 +271,7 @@
               <h5 class="card-text">IPSJ第85回全国大会(2023/02)</h5>
               <p class="card-text">カメラ画像から箱の大きさを推定する時、Keypoint R-CNN を⽤いて直⽅体の各頂点を推定する論文を作成しました。<br>
               人体用のモデルをファインチューニングし、独自の箱用キーポイントを定義し行った。</p>
-              <a href="https://onsite.gakkai-web.net/ipsj/onsite/data/pdf/5Q-02.pdf" class="btn btn--orange btn--radius"> PDFリンク </a>
+              <!-- <a href="https://onsite.gakkai-web.net/ipsj/onsite/data/pdf/5Q-02.pdf" class="btn btn--orange btn--radius"> PDFリンク </a> -->
             </div>
           </div>
         </div>
@@ -260,12 +279,12 @@
     </div>
   </div>
 
-  <div class="fixed-background background-6 d-flex justify-content-center align-items-center">
+  <div class="fixed-background background-6 d-flex justify-content-center align-items-center" id="scroll-5">
     <div class="w-100 vh-100 opa4 d-flex justify-content-center align-items-center">
-      <h1>Qualification list.</h1>
+      <h1 data-aos="zoom-in-up">Qualification list.</h1>
     </div>
   </div>
-  <div class="scroll-background background-color-6 p-5">
+  <div class="scroll-background background-color-6 p-5" data-aos="fade-up">
     <ul class="font-color w-50 mx-auto">
       <li>AI実装検定A級</li>
       <li>データサイエンス数学ストラテジスト中級</li>
@@ -282,9 +301,17 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <!-- フォント用 -->
     <script src="./assets/js/index.min.js"></script>
+    <!-- aos. jsファイルを読み込む -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
       // ふんわり用
-      AOS.init();
+      AOS.init({
+        offset: 300,
+        delay: 100,
+        duration: 500,
+        easing: 'ease-in',
+        once: true,
+      });
     </script>
     <script>
       ityped.init(document.querySelector("#ityped-1"), {
