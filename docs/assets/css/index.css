@@ -119,3 +119,8 @@ a.btn--orange:hover {
 a.btn--radius {
    border-radius: 100vh;
 }
+
+/* btnホバー */
+.btn-hover:hover{
+    background-color: rgb(215, 241, 255)!important;
+}
