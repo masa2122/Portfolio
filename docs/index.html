@@ -2,145 +2,316 @@
 <html lang="ja">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Portfolio</title>
-    <link href="index.css" rel="stylesheet" type="text/css">
-    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Katsumori_Okazaki Portfolio</title>
+  <link href="./assets/css/index.css" rel="stylesheet" type="text/css">
+
+  <!-- ゴシック -->
+  <link href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic" rel="stylesheet">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <!-- アイコン -->
+  <script src="https://kit.fontawesome.com/23e3f60429.js" crossorigin="anonymous"></script>
+  <!-- aos.cssを読み込む -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- aos. jsファイルを読み込む -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </head>
 
 <body>
-    <header class="text-gray-600 body-font bg-orange-200">
-        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-          <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-            <!-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-yellow-500 rounded-full" viewBox="0 0 24 24">
-              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-            </svg> -->
-            <span class="ml-3 text-xl">Portfolio</span>
-          </a>
-          <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
-            <a class="mr-5 hover:text-gray-900">About</a>
-            <a class="mr-5 hover:text-gray-900">Skill</a>
-            <a class="mr-5 hover:text-gray-900">Works</a>
-            <a class="mr-5 hover:text-gray-900">Contact</a>
-          </nav>
-          <button class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">Button
-            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
-              <path d="M5 12h14M12 5l7 7-7 7"></path>
-            </svg>
+
+  <!-- <div class="container"> -->
+  <!--自己紹介-->
+  <div class="fixed-background background-1">
+    <div class="w-100 vh-100 opa1 d-flex justify-content-center align-items-center">
+      <h1><span id="ityped-1"></span></h1>
+    </div>
+  </div>
+
+  <div class="scroll-background background-color-1 p-5" id="scroll-1" data-aos="fade-up">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <img src="assets/img/me.jpg" class="w-100 rounded-circle" style="aspect-ratio:1/1;">
+        </div>
+        <div class="col-md-8">
+          <div class="w-100">
+            <h1 class="english mb-5 text-dark">I'm Katsumori Okazaki / Department of Data Science,<br>Faculty of Data Science, Musashino University.</h1>
+            <p>はじめまして、岡崎勝守と申します！<br>
+              現在、武蔵野大学でデータサイエンスを学んでいる25卒の学部生です。<br>
+              大学では箱の大きさを推定し、特定のエリアに収納方法を提案するシステムを開発中、、<br>
+              将来はデータサインティストを目指しています。<br>
+              その目標の達成をするために、日々自己研鑽に励んでいます！
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <!--------------------------------------------------------------------->
+
+  <div class="fixed-background background-2">
+    <div class="w-100 vh-100 opa2 d-flex justify-content-center align-items-center">
+      <h1>About me.</h1>
+    </div>
+  </div>
+
+  <div class="scroll-background background-color-2 p-5" data-aos="fade-up">
+    <div class="">
+      <h2 class="text-center">目標</h2>
+      <p class="text-center">
+        AI×なにかで世の中の役に立つ物を作っていく！<br>
+        プログラミング分野に強いデータサイエンティストなることです！<br>
+        今後は、深層学習に関する勉強を中心にやっていきたいと考えています。
+      </p>
+    </div>
+
+    <div class="">
+      <h2 class="mt-5 text-center">趣味</h2>
+      <!-- スライダー -->
+      <div class="container">
+        <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="2000">
+              <img src="assets/img/slide-1.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item" data-bs-interval="2000">
+              <img src="assets/img/slide-2.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item" data-bs-interval="2000">
+              <img src="assets/img/slide-3.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item" data-bs-interval="2000">
+              <img src="assets/img/slide-4.jpg" class="d-block w-100" alt="...">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
           </button>
         </div>
-    </header>
-
-    <div class="container mx-auto w-3/4">
-        <div class="flex flex-wrap">
-            <img class="w-full p-2" src="./assets/img/img2.jpeg">
-            <img class="w-full lg:w-1/2 p-2" src="./assets/img/img3.jpeg">
-            <img class="w-full lg:w-1/2 p-2" src="./assets/img/IMG_6925.jpg">
-        </div>
-        <h3 class="text-4xl my-5">About</h3>
-        <ul class="list-disc">
-            <li>Katsumori Okazaki</li>
-            <li>Faculty of Data Science, Musashino University</li>
-            <li>趣味：読書</li>
-            <li>目標：世界に通用するサービスを作れるようになる</li>
-        </ul>
-
-
-        <h3 class="text-4xl my-5">Skill</h3>
-        <ul class="list-disc">
-            <li>HTML,css</li>
-            <li>PHP</li>
-            <li>Python</li>
-            <li>機械学習</li>
-        </ul>
-
-        <h3 class="text-4xl my-5">research</h3>
-        <ul class="list-disc">
-            <li>phpを使ってwebサービの作成</li>
-            <li>機械学習の本を実際に手を動かしながら勉強しています</li>
-        </ul>
-
-        <h3 class="text-4xl my-5">Works</h3>
-
-        <div class="grid grid-cols-1 gap-6 lg:gap-12">
-
-          <div class="sm:flex lg:items-start group border-2 rounded-md p-4 border-orange-100">
-            <div class="w-1/3">
-                <img class="" src="./assets/img/out1.png">
-            </div>
-            <div class="w-2/3 pl-4">
-              <h2 class="text-2xl mb-4">ドット絵の投稿サイト</h2>
-              <span class="text-sm">Skill</span>
-              <ul class="flex space-x-1 [&>li]:text-xs [&>li]:border-2 [&>li]:border-orange-200 [&>li]:rounded-full [&>li]:px-1 [&>li]:py-0.3">
-                <li>Python</li>
-                <li>Django</li>
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>Bootstrap</li>
-              </ul>
-              <p class="mt-4">ドット絵の投稿サイトを作成しました。サイト内の機能は、投稿、編集、お問合せを作成しました。<br>データベースの構造を考えるのが一番大変でしたが色々な知識を得ることができました。</p>
-              <div class="text-center my-4">
-                <a href="https://docs.google.com/presentation/d/18kLuHv_syyFVr9AbEIyaVbX1R-5gGBFBxmIZv56YSe4/edit?usp=sharing">
-                  <button class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full shadow">
-                    MORE
-                  </button>
-                </a>
-              </div>
-
-            </div>
-          </div>
-
-          <div class="sm:flex lg:items-start group border-2 rounded-md p-4 border-orange-100">
-            <div class="w-1/3">
-              <img src="./assets/img/out2.png">
-            </div>
-            <div class="w-2/3 pl-4">
-              <h2 class="text-2xl mb-4">オンラインショップの編集</h2>
-              <span class="my-3 text-sm">Skill</span>
-              <ul class="flex space-x-1 [&>li]:text-xs [&>li]:border-2 [&>li]:border-orange-200 [&>li]:rounded-full [&>li]:px-1 [&>li]:py-0.3">
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>バナー作成</li>
-                <li>記事作成</li>
-              </ul>
-              <p class="mt-4">祖父の仕事の手伝いとしてオンラインショップの編集をしています。<br>商品の写真撮影やバナー作成も自分で行なっています。</p>
-              <div class="text-center my-4">
-                <a href="https://ichikodo-shop.com/">
-                  <button class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full shadow">
-                    MORE
-                  </button>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div class="sm:flex lg:items-start group border-2 rounded-md p-4 border-orange-100">
-            <div class="w-1/3">
-              <img src="./assets/img/out3.png">
-            </div>
-            <div class="w-2/3 pl-4">
-              <h2 class="text-2xl mb-4">クラブ紹介サイト</h2>
-              <span class="my-3 text-sm">Skill</span>
-              <ul class="flex space-x-1 [&>li]:text-xs [&>li]:border-2 [&>li]:border-orange-200 [&>li]:rounded-full [&>li]:px-1 [&>li]:py-0.3">
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>JavaScript</li>
-              </ul>
-              <p class="mt-4">フロントエンドとしてクラブ紹介サイトの詳細画面のデザインを作成しました。</p>
-            </div>
-          </div>
-
-        </div>
-        <h3 class="text-4xl my-5">Contact</h3>
-        <ul>
-            <li>次回課題</li>
-        </ul>
-
-        <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-    <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2022 Katsumori Okazaki</span>
+      </div>
+      <p class="w-75 m-auto mt-4">
+        趣味はカフェ、ダーツ、旅行、運動、パスタ作りです！<br>
+        ダーツはマイダーツを持っているほどダーツにハマっています。<br>
+        パスタを作り始めたのは飲食店でのアルバイト経験を活かし自宅でも作ってみたことがきっかけです！<br>
+        初めて作ったパスタはアーリオオーリオです。<br>
+        そこから、ペペロンチーノ→明太子パスタ→トマトクリーム→ジェノベーゼ→クリームパスタ<br>
+        と様々な物を作ってきました！
+      </p>
     </div>
-</body>
+  </div>
+
+      <!--------------------------------------------------------------------->
+  <div class="fixed-background background-3 d-flex justify-content-center align-items-center">
+    <div class="w-100 vh-100 opa3 d-flex justify-content-center align-items-center">
+      <h1>Programming skills.</h1>
+    </div>
+  </div>
+
+  <div class="py-5 scroll-background background-color-3" data-aos="fade-up">
+    <div class="container">
+      <ul class="p-3 list-group list-group-flush list-unstyled bg-white">
+        <li><i class="fa-solid fa-star fa-spin" style="color: #ffc800;"></i>　　　　独学</li>
+        <li><i class="fa-solid fa-star fa-spin" style="color: #ffc800;"></i><i class="fa-solid fa-star fa-spin" style="color: #ffc800;"></i>　　　大学で使用</li>
+        <li><i class="fa-solid fa-star fa-spin" style="color: #ffc800;"></i><i class="fa-solid fa-star fa-spin" style="color: #ffc800;"></i><i class="fa-solid fa-star fa-spin" style="color: #ffc800;"></i>　　研究で使用</li>
+        <li><i class="fa-solid fa-star fa-spin" style="color: #ffc800;"></i><i class="fa-solid fa-star fa-spin" style="color: #ffc800;"></i><i class="fa-solid fa-star fa-spin" style="color: #ffc800;"></i><i class="fa-solid fa-star fa-spin" style="color: #ffc800;"></i>　インターンで使用</li>
+      </ul>
+      <img src="./assets/img/skill.png" class="w-100">
+      <p class="my-4">学校の授業やインターン、独学で知識を増やしてきました！</p>
+      </div>
+    </div>
+  </div>
+      <!--------------------------------------------------------------------->
+
+  <div class="fixed-background background-4 d-flex justify-content-center align-items-center">
+    <div class="w-100 vh-100 opa3 d-flex justify-content-center align-items-center">
+      <h1>Internship.</h1>
+    </div>
+  </div>
+  <div class="scroll-background background-color-4 p-5" data-aos="fade-up">
+    <div class="row">
+      <div class="col-3 position-relative">
+        <h4 class="position-absolute mt-5 end-0">2022年9月</h4>
+        <h4 class="position-absolute bottom-0 end-0">2022年12月</h4>
+      </div>
+      <div class="col-9">
+        <h2 class="px-5">株式会社QUICK</h2>
+        <div class="px-2 py-1" style="border-left:solid #fff 1px;">
+          <p>学校紹介のインターンをやらせていただきました。<br>
+          株式会社QUICKは日本経済新聞グループで45年以上、金融・マーケットデータを提供する「金融情報ベンダー」です。</p>
+          <h5>特徴</h5>
+          <p>日経平均株価のリアルタイム算出<br>証券、銀行などに金融市場のインフラとして毎日使用されています。</p>
+          <h5>課題</h5>
+          <p>QUICK Workstation Astra Managerを使用して株価や経済指標の取得や相関分析、回帰分析などを行いました。<br>
+            最終課題ではテーマ株またはグループで設定したテーマについて、株価を変動させる要因を考え、分析する課題でした。<br>
+            分析にはPythonとEXCELを使用して分析をしました。
+          </p>
+          <a href="https://corporate.quick.co.jp/" class="btn btn--orange btn--radius"> 会社リンク </a>
+          
+        </div>
+      </div>
+      
+      <div class="col-3 my-5 position-relative">
+        <h4 class="position-absolute mt-5 end-0">2023年2月</h4>
+        <h4 class="position-absolute bottom-0 end-0">現在</h4>
+      </div>
+      <div class="col-9 my-5">
+        <h2 class="px-5">Trustart株式会社</h2>
+        <!-- internでやっていることを詳しく書く -->
+        <div class="px-2 py-1" style="border-left:solid #fff 1px;">
+          <p>有給インターンをやらせてもらっています。<br>
+            Trustart株式会社は社会課題を人とテクノロジーで解決し、社会全体の発展に貢献する会社です。<br>
+            現在は、不動産×テクノロジー×人の力で社会課題を解決していっています。</p>
+            <h4>役割</h4>
+            <p>データチームのリーダーを任せてもらっています。</p>
+            <a href="https://www.trustart.co.jp/" class="btn btn--orange btn--radius"> 会社リンク </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="fixed-background background-5 d-flex justify-content-center align-items-center">
+    <div class="w-100 vh-100 opa4 d-flex justify-content-center align-items-center">
+      <h1>Research to date.</h1>
+    </div>
+  </div>
+
+  <div class="scroll-background background-color-5 p-5" data-aos="fade-up">
+    <div class="container">
+      <h1 class="mt-5 mb-4 border-bottom">1年次</h1>
+      <div class="card mb-3">
+        <div class="row g-0">
+          <div class="col-md-6">
+            <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSnbyGltTmiqPzPoazSDqdWfqMtWdABw9EulbaLDRTlo-0Y1YYvZGOtBVvA5uZ0feQZwDfnndiZ0-Zh/embed?start=true&loop=true&delayms=3000" class="w-100" style="aspect-ratio:16/9;" frameborder="0" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+          </div>
+          <div class="col-md-6">
+            <div class="card-body">
+              <h4 class="card-title">ドット絵の投稿サイト</h4>
+              <p class="card-text">ドット絵の投稿サイトを作成。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+  
+      <div class="card mb-3">
+        <div class="row g-0">
+          <div class="col-md-6 overflow-auto" style="aspect-ratio:16/9;">
+            <img src="assets/img/club.png" class="w-100">
+          </div>
+          <div class="col-md-6">
+            <div class="card-body">
+              <h4 class="card-title">ドット絵の投稿サイト</h4>
+              <p class="card-text">サークル紹介ページを作成。また、グループでサークルの紹介ページを作成。詳細画面を担当</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb-3">
+        <div class="row g-0">
+          <div class="col-md-6 overflow-auto" style="aspect-ratio:16/9;">
+            <img src="assets/img/ichikodo.png" class="w-100">
+          </div>
+          <div class="col-md-6">
+            <div class="card-body">
+              <h4 class="card-title">オンラインショップ</h4>
+              <p class="card-text">祖父のオンラインショップの編集</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h1 class="mt-5 mb-4 border-bottom">2年次</h1>
+      <div class="card mb-3 ">
+        <div class="row g-0">
+          <div class="col-md-6">
+            <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSrMF3VLJ3t9oRALBJYPP6nafEqu0mueAmFjJ1LuYI0t6qbvbhFzx_y-V2eWMpYIQ/embed?start=true&loop=true&delayms=3000" class="w-100" style="aspect-ratio:16/9;" frameborder="0" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+          </div>
+          <div class="col-md-6">
+            <div class="card-body">
+              <h4 class="card-title">画像処理</h4>
+              <p class="card-text">画像から箱の大きさを推定し、特定のエリアへの適切な収納法の提案システムを研究しています。</p>
+              <h5 class="card-text">IPSJ第85回全国大会(2023/02)</h5>
+              <p class="card-text">Keypoint R-CNN を⽤いて直⽅体の各頂点を推定する論文を作成しました。</p>
+              <p class="card-text"><small class="text-muted"><a href="https://onsite.gakkai-web.net/ipsj/onsite/data/pdf/5Q-02.pdf">論文PDF</a></small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="fixed-background background-6 d-flex justify-content-center align-items-center">
+    <div class="w-100 vh-100 opa4 d-flex justify-content-center align-items-center">
+      <h1>Qualification list.</h1>
+    </div>
+  </div>
+  <div class="scroll-background background-color-6 p-5" data-aos="fade-up">
+    <ul class="font-color w-50 mx-auto">
+      <li>AI実装検定A級</li>
+      <li>データサイエンス数学ストラテジスト中級</li>
+    </ul>
+  </div>
+
+  <!-- </div> -->
+
+  <!--お問い合わせ-->
+    <div class="w-100 vh-100"><iframe src="https://tayori.com/form/5b513637def4a3ee88db52b4ff3e96765c83fbbb/" width="100%" height="100%"></iframe></div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <!-- フォント用 -->
+    <script src="./assets/js/index.min.js"></script>
+    <script>
+      ityped.init(document.querySelector("#ityped-1"), {
+      strings: ['Welcom to my Portfolio!','ようこそ私のポートフォリオへ!'],
+      loop: false,         //カーソルとして表示させる文字を" "内に指定
+      })
+
+      ityped.init(document.querySelector("#ityped-2"), {
+      strings: ['About me.','私について'],
+      loop: true,         //カーソルとして表示させる文字を" "内に指定
+      startDelay: 5000,
+      })
+
+      ityped.init(document.querySelector("#ityped-3"), {
+      strings: ['Programming skills.'],
+      loop: true,         //カーソルとして表示させる文字を" "内に指定
+      })
+
+      ityped.init(document.querySelector("#ityped-4"), {
+      strings: ['Internship.'],
+      loop: true,         //カーソルとして表示させる文字を" "内に指定
+      })
+
+      ityped.init(document.querySelector("#ityped-5"), {
+      strings: ['Research to date!.'],
+      loop: true,         //カーソルとして表示させる文字を" "内に指定
+      })
+
+      ityped.init(document.querySelector("#ityped-6"), {
+      strings: ['Qualification list.'],
+      loop: true,         //カーソルとして表示させる文字を" "内に指定
+      })
+      // ふんわり用
+      AOS.init({
+        offset: 300,
+        delay: 100,
+        duration: 500,
+        easing: 'ease-in',
+        once: true,
+      });
+    </script>
+  </body>
 
 </html>
 
