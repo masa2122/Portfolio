@@ -4,6 +4,8 @@
 body {
     font-family:"Sawarabi Gothic"!important;
     background-color: #F2F5C8!important;
+    letter-spacing: 0.14em;
+    line-height: 1.5;
 }
 h1 {
     color: rgb(255, 255, 255);
@@ -118,4 +120,9 @@ a.btn--orange:hover {
 
 a.btn--radius {
    border-radius: 100vh;
+}
+
+/* btnホバー */
+.btn-hover:hover{
+    background-color: rgb(215, 241, 255)!important;
 }
