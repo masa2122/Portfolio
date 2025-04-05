@@ -1,378 +1,519 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Katsumori_Okazaki Portfolio</title>
-  <link href="./assets/css/index.css" rel="stylesheet" type="text/css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Katsumori Okazaki Portfolio</title>
 
-  <!-- ゴシック -->
-  <link href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic" rel="stylesheet">
-
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <!-- アイコン -->
+  <link rel="icon" href="./assets/img/favicon.ico" id="favicon">
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/img/apple-touch-icon.png">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Typed.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <!-- ScrollReveal CDN -->
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <!-- Font Awesome for icons -->
   <script src="https://kit.fontawesome.com/23e3f60429.js" crossorigin="anonymous"></script>
-  <!-- aos.cssを読み込む -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-</head>
 
-<body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Katsumori's portfolio</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-link active" aria-current="page" href="#scroll-1">About</a>
-          <a class="nav-link active" href="#scroll-2">Skill</a>
-          <a class="nav-link active" href="#scroll-3">Internship</a>
-          <a class="nav-link active" href="#scroll-4">Research</a>
-          <a class="nav-link active" href="#scroll-5">Qualification</a>
+  <style>
+    /* タイムライン用のカスタムスタイル */
+    .timeline {
+      position: relative;
+      padding: 2rem 0;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 2px;
+      background: #153243; /* タイムラインのラインを濃い色に */
+    }
+    .timeline-item {
+      position: relative;
+      width: 50%;
+      padding: 1rem 2rem;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      top: 1.25rem;
+      width: 1rem;
+      height: 1rem;
+      background: #fff;
+      border: 2px solid #153243; 
+      border-radius: 50%;
+    }
+    .timeline-item.left {
+      left: 0;
+      text-align: right;
+    }
+    .timeline-item.left::before {
+      right: -0.8rem;
+    }
+    .timeline-item.right {
+      left: 50%;
+    }
+    .timeline-item.right::before {
+      left: -0.8rem;
+    }
+    @media (max-width: 768px) {
+      .timeline::before {
+        left: 8%;
+      }
+      .timeline-item {
+        width: 100%;
+        padding-left: 3rem;
+        padding-right: 1rem;
+      }
+      .timeline-item.left,
+      .timeline-item.right {
+        left: 0;
+        text-align: left;
+      }
+      .timeline-item::before {
+        left: 1rem;
+      }
+    }
+
+    /* 画像アスペクト比を保つためのユーティリティ（TailwindCSSの aspect-w / aspect-h が使えない場合のバックアップ） */
+    .aspect-w-16 {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%; /* 16:9 */
+    }
+    .aspect-h-9 {
+      height: 0;
+    }
+    .aspect-w-16 > iframe,
+    .aspect-w-16 > img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body class="bg-[#fff1d9] text-[#153243]">
+  <!-- ナビゲーションバー -->
+  <nav class="fixed w-full z-10 shadow bg-[#fff1d9]">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex justify-between">
+        <!-- ロゴ -->
+        <div class="flex items-center">
+          <a href="#" class="py-5 px-2 font-bold text-[#153243]">Katsumori Okazaki</a>
+        </div>
+        <!-- PC用メニュー -->
+        <div class="hidden md:flex items-center space-x-4">
+          <a href="#about" class="py-5 px-3 hover:text-[#457084]">About</a>
+          <a href="#skills" class="py-5 px-3 hover:text-[#457084]">Skills</a>
+          <a href="#internship" class="py-5 px-3 hover:text-[#457084]">Internship</a>
+          <a href="#research" class="py-5 px-3 hover:text-[#457084]">Research</a>
+          <a href="#qualifications" class="py-5 px-3 hover:text-[#457084]">Qualifications</a>
+          <a href="#contact" class="py-5 px-3 hover:text-[#457084]">Contact</a>
+        </div>
+        <!-- モバイル用メニューアイコン -->
+        <div class="md:hidden flex items-center">
+          <button class="mobile-menu-button">
+            <i class="fas fa-bars"></i>
+          </button>
         </div>
       </div>
+    </div>
+    <!-- モバイルメニュー -->
+    <div class="mobile-menu hidden md:hidden bg-[#fff1d9]">
+      <a href="#about" class="block py-2 px-4 text-sm hover:bg-[#e8c9a3]">About</a>
+      <a href="#skills" class="block py-2 px-4 text-sm hover:bg-[#e8c9a3]">Skills</a>
+      <a href="#internship" class="block py-2 px-4 text-sm hover:bg-[#e8c9a3]">Internship</a>
+      <a href="#research" class="block py-2 px-4 text-sm hover:bg-[#e8c9a3]">Research</a>
+      <a href="#qualifications" class="block py-2 px-4 text-sm hover:bg-[#e8c9a3]">Qualifications</a>
+      <a href="#contact" class="block py-2 px-4 text-sm hover:bg-[#e8c9a3]">Contact</a>
     </div>
   </nav>
-  <!-- <div class="container"> -->
-  <!--自己紹介-->
-  <div class="fixed-background background-1">
-    <div class="w-100 vh-100 opa1 d-flex justify-content-center align-items-center">
-      <h1><span id="ityped-1"></span></h1>
-    </div>
-  </div>
 
-  <div class="scroll-background background-color-1 p-5" data-aos="fade-up">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3">
-          <img src="assets/img/me.jpg" class="w-100 rounded-circle" style="aspect-ratio:1/1;">
-        </div>
-        <div class="col-md-8">
-          <div class="w-100">
-            <h1 class="english mb-5 text-dark">I'm Katsumori Okazaki / Department of Data Science,<br>Faculty of Data Science, Musashino University.</h1>
-            <p>はじめまして、岡崎勝守と申します！<br>
-              現在、武蔵野大学でデータサイエンスを学んでいる25卒の学部生です。<br>
-              大学では箱の大きさを推定し、特定のエリアに収納方法を提案するシステムを開発中、、<br>
-              将来はデータサインティストを目指しています。<br>
-              その目標の達成をするために、日々自己研鑽に励んでいます！
-            </p>
-            <a href="https://twitter.com/masa_11_24" target="_blank" rel="noopener noreferrer"><span class="px-2 py-1 mx-1 my-2 border border-2 rounded-pill small btn btn-hover" style="border-color: rgb(33, 159, 148)!important;"><i class="fa-brands fa-twitter" style="color: #75c3ff;"></i>Twitter</span></a>
-            <a href="https://github.com/masa2122" target="_blank" rel="noopener noreferrer"><span class="px-2 py-1 mx-1 border border-2 rounded-pill small btn btn-hover" style="border-color: rgb(33, 159, 148)!important;"><i class="fa-brands fa-github"></i>Github</span></a>
-            <a href="https://qiita.com/masa1124" target="_blank" rel="noopener noreferrer"><span class="px-2 py-1 mx-1 border border-2 rounded-pill small btn btn-hover" style="border-color: rgb(33, 159, 148)!important;"><i class="fa-solid fa-comment" style="color: #7de889;"></i>Qiita</span></a>
-            <a href="https://rogue-meteorite-a28.notion.site/AI-792ed22be0234c95933e4464f16abcba?pvs=4" target="_blank" rel="noopener noreferrer"><span class="px-2 py-1 mx-1 border border-2 rounded-pill small btn btn-hover" style="border-color: rgb(33, 159, 148)!important;"><i class="fa-solid fa-book" style="color: #7c5050;"></i>学習録</span></a>
-          </div>
+  <!-- 工事中看板 -->
+  <section class="fixed bottom-0 left-0 w-full bg-yellow-400 text-center py-2 z-50 shadow-md">
+    <h1 class="text-3xl font-bold my-4">🚧 このサイトは工事中です 🚧</h1>
+  </section>
+  <!-- ヒーローセクション -->
+  <section id="hero" class="h-screen flex items-center justify-center" 
+           style="background: linear-gradient(to bottom right, #fff1d9, #e8c9a3);">
+    <div class="text-center" id="hero-text">
+      <h1 class="text-4xl md:text-6xl font-bold mb-4"></h1>
+      <p class="text-xl md:text-2xl">ようこそ私のポートフォリオへ!</p>
+    </div>
+  </section>
+
+  <!-- About セクション -->
+  <section id="about" class="py-20">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center">
+      <div class="md:w-1/3 mb-8 md:mb-0" data-sr>
+        <img src="assets/img/me.jpg" alt="My Photo" 
+             class="rounded-full border-4 border-white shadow-lg w-80 h-80 object-cover mx-auto" />
+      </div>
+      <div class="md:w-2/3 md:pl-12" data-sr>
+        <h2 class="text-3xl font-bold mb-4">I'm Katsumori Okazaki</h2>
+        <p class="mb-6 leading-relaxed">
+          はじめまして、岡崎勝守と申します！<br />
+          <!-- 製造業のIT部に勤めている一般人です。<br /> -->
+          大学では画像系のAIに関する研究やインターンシップを行ってきました。<br />
+          将来はプログラミングに強いデータサインティストを目指しています。<br />
+          その目標の達成をするために、日々自己研鑽に励んでいます！<br />
+          <br />
+          【最近の活動】<br />
+          アウトプットの場としてAIを使った花のアート作品を作成中。<br />
+          是非チェックしてみてください（Floral Imagination Studio）
+        </p>
+        <div class="flex space-x-4 text-2xl">
+          <!-- <a href="https://twitter.com/masa_11_24" target="_blank" class="hover:text-[#457084]">
+            <i class="fab fa-twitter"></i>
+          </a> -->
+          <a href="https://github.com/masa2122" target="_blank" class="hover:text-[#457084]">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://qiita.com/masa1124" target="_blank" class="hover:text-[#457084]">
+            <i class="fas fa-comment"></i>
+          </a>
+          <!-- <a href="https://rogue-meteorite-a28.notion.site/AI-792ed22be0234c95933e4464f16abcba?pvs=4" 
+             target="_blank" class="hover:text-[#457084]">
+            <i class="fas fa-book"></i>
+          </a> -->
         </div>
       </div>
     </div>
-  </div>
-    <!--------------------------------------------------------------------->
+  </section>
 
-  <div class="fixed-background background-2" id="scroll-1">
-    <div class="w-100 vh-100 opa2 d-flex justify-content-center align-items-center">
-      <h1 data-aos="zoom-in-up">About me.</h1>
-    </div>
-  </div>
-
-  <div class="scroll-background background-color-2 py-5" data-aos="fade-up">
-    <h2 class="text-center">目標</h2>
-    <p class="text-center pb-5">
-      将来はAIで世界をより良く、より便利にしていきたいと考えています。<br>そのために、大学入学後から技術向上のため、目的から逆算してロードマップを作成し、<br>今行うべきことを明確にしています。<br>
-      画像分野に強いデータサイエンティストなること！<br>
-      今後は、深層学習に関する勉強を中心にやっていきます。
-    </p>
-
-
-    <!-- スライダー -->
-    <div class="container-fluid" style="padding:0;">
-      <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active" data-bs-interval="2000">
-            <img src="assets/img/slide-1.jpg" class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item" data-bs-interval="2000">
-            <img src="assets/img/slide-2.jpg" class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item" data-bs-interval="2000">
-            <img src="assets/img/slide-3.jpg" class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item" data-bs-interval="2000">
-            <img src="assets/img/slide-4.jpg" class="d-block w-100" alt="...">
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
+  <!-- floral セクション -->
+  <section id="fis" class="py-20 bg-[#e8c9a3] bg-opacity-30">
+    <div class="max-w-6xl mx-auto px-4" data-sr>
+      <h2 class="text-3xl font-bold text-center mb-12">Floral Imagination Studio</h2>
+      <div class="w-fit mx-auto">
+        <p>私の遊び場です！<br />必要な技術を学ぶためにAI×花の写真で作品づくりをしています。</p>
+        <a href="https://floral-imagination.com/" target="_blank" 
+            class="mt-4 inline-block bg-[#457084] text-white px-4 py-2 rounded hover:bg-[#153243] transition-colors">
+          リンク
+        </a>
       </div>
     </div>
-    <div class="container px-5">
-      <h2 class="mt-2 text-center">趣味</h2>
-      <p class="w-100 text-center">
-        趣味はカフェ、ダーツ、旅行、運動、パスタ作りです！<br>
-        ダーツはマイダーツを持っているほどダーツにハマっています。<br>
-        パスタを作り始めたのは飲食店でのアルバイト経験を活かし自宅でも作ってみたことがきっかけです！<br>
-        初めて作ったパスタはアーリオオーリオ。<br>
-        そこから、ペペロンチーノ→明太子パスタ→トマトクリーム→ジェノベーゼ→クリームパスタ
-        と様々な物を作ってきました！
+  </section>
+  <!-- Skills セクション -->
+  <section id="skills" class="py-20">
+    <div class="max-w-6xl mx-auto px-4" data-sr>
+      <h2 class="text-3xl font-bold text-center mb-12">Programming Skills</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- 左カラム -->
+        <div>
+          <div class="flex justify-between items-center mb-4">
+            <span class="font-semibold">Python</span>
+            <span>★★★★</span>
+          </div>
+          <div class="flex justify-between items-center mb-4">
+            <span class="font-semibold">Pytorch</span>
+            <span>★★★☆</span>
+          </div>
+          <div class="flex justify-between items-center mb-4">
+            <span class="font-semibold">PHP</span>
+            <span>★★☆☆</span>
+          </div>
+          <div class="flex justify-between items-center mb-4">
+            <span class="font-semibold">SQL</span>
+            <span>★★☆☆</span>
+          </div>
+          <div class="flex justify-between items-center mb-4">
+            <span class="font-semibold">Flask</span>
+            <span>★★☆☆</span>
+          </div>
+          <div class="flex justify-between items-center mb-4">
+            <span class="font-semibold">React</span>
+            <span>★★☆☆</span>
+          </div>
+        </div>
+        <!-- 右カラム -->
+        <div>
+          <div class="flex justify-between items-center mb-4">
+            <span class="font-semibold">Django</span>
+            <span>★☆☆☆</span>
+          </div>
+          <div class="flex justify-between items-center mb-4">
+            <span class="font-semibold">HTML/CSS</span>
+            <span>★★★★</span>
+          </div>
+          <div class="flex justify-between items-center mb-4">
+            <span class="font-semibold">Docker</span>
+            <span>★★★☆</span>
+          </div>
+          <div class="flex justify-between items-center mb-4">
+            <span class="font-semibold">Ruby</span>
+            <span>★★☆☆</span>
+          </div>
+          <div class="flex justify-between items-center mb-4">
+            <span class="font-semibold">Javascript</span>
+            <span>★★☆☆</span>
+          </div>
+          <div class="flex justify-between items-center mb-4">
+            <span class="font-semibold">GAS</span>
+            <span>★★☆☆</span>
+          </div>
+        </div>
+      </div>
+      <p class="text-center mt-6">
+        学校の授業やインターン、独学で知識を増やしてきました！<br />
+        Pythonが得意で、授業や研究、インターンで使用しています。
       </p>
     </div>
-  </div>
+  </section>
 
-      <!--------------------------------------------------------------------->
-  <div class="fixed-background background-3 d-flex justify-content-center align-items-center" id="scroll-2">
-    <div class="w-100 vh-100 opa3 d-flex justify-content-center align-items-center">
-      <h1 data-aos="zoom-in-up">Programming skills.</h1>
-    </div>
-  </div>
-
-  <div class="py-5 scroll-background background-color-3" data-aos="fade-up">
-    <div class="container p-3 rounded" style="background-color:#f8f8f8;">
-      <ul class="p-3 list-group list-group-flush list-unstyled border-bottom">
-        <li><i class="fa-solid fa-star fa-spin" style="color: #ffc800;"></i><i class="fa-solid fa-star fa-spin" style="color: #D9E4DD;"></i><i class="fa-solid fa-star fa-spin" style="color: #D9E4DD;"></i><i class="fa-solid fa-star fa-spin" style="color: #D9E4DD;"></i> : 独学</li>
-        <li><i class="fa-solid fa-star fa-spin" style="color: #ffc800;"></i><i class="fa-solid fa-star fa-spin" style="color: #ffc800;"></i><i class="fa-solid fa-star fa-spin" style="color: #D9E4DD;"></i><i class="fa-solid fa-star fa-spin" style="color: #D9E4DD;"></i> : 授業で使用</li>
-        <li><i class="fa-solid fa-star fa-spin" style="color: #ffc800;"></i><i class="fa-solid fa-star fa-spin" style="color: #ffc800;"></i><i class="fa-solid fa-star fa-spin" style="color: #ffc800;"></i><i class="fa-solid fa-star fa-spin" style="color: #D9E4DD;"></i> : 研究で使用</li>
-        <li><i class="fa-solid fa-star fa-spin" style="color: #ffc800;"></i><i class="fa-solid fa-star fa-spin" style="color: #ffc800;"></i><i class="fa-solid fa-star fa-spin" style="color: #ffc800;"></i><i class="fa-solid fa-star fa-spin" style="color: #ffc800;"></i> : インターンで使用</li>
-      </ul>
-      <div class="row pt-3">
-        <ul class="col-6 list-group-flush list-unstyled text-center">
-          <li>Python</li>
-          <li>Pytorch</li>
-          <li>PHP</li>
-          <li>SQL</li>
-          <li>Flask</li>
-          <li>Django</li>
-          <li>HTML/CSS</li>
-          <li>Docker</li>
-          <li>Ruby</li>
-          <li>Javascript</li>
-          <li>GAS</li>
-        </ul>
-        <ul class="col-6 list-group-flush list-unstyled">
-          <li><i class="fa-solid fa-star fa-spin" style="color: #ffc800;"></i><i class="fa-solid fa-star fa-spin" style="color: #ffc800;"></i><i class="fa-solid fa-star fa-spin" style="color: #ffc800;"></i><i class="fa-solid fa-star fa-spin" style="color: #ffc800;"></i></li>
-          <li><i class="fa-solid fa-star fa-spin" style="color: #ffc800;"></i><i class="fa-solid fa-star fa-spin" style="color: #ffc800;"></i><i class="fa-solid fa-star fa-spin" style="color: #ffc800;"></i><i class="fa-solid fa-star fa-spin" style="color: #D9E4DD;"></i></li>
-          <li><i class="fa-solid fa-star fa-spin" style="color: #ffc800;"></i><i class="fa-solid fa-star fa-spin" style="color: #ffc800;"></i><i class="fa-solid fa-star fa-spin" style="color: #D9E4DD;"></i><i class="fa-solid fa-star fa-spin" style="color: #D9E4DD;"></i></li>
-          <li><i class="fa-solid fa-star fa-spin" style="color: #ffc800;"></i><i class="fa-solid fa-star fa-spin" style="color: #ffc800;"></i><i class="fa-solid fa-star fa-spin" style="color: #D9E4DD;"></i><i class="fa-solid fa-star fa-spin" style="color: #D9E4DD;"></i></li>
-          <li><i class="fa-solid fa-star fa-spin" style="color: #ffc800;"></i><i class="fa-solid fa-star fa-spin" style="color: #ffc800;"></i><i class="fa-solid fa-star fa-spin" style="color: #D9E4DD;"></i><i class="fa-solid fa-star fa-spin" style="color: #D9E4DD;"></i></li>
-          <li><i class="fa-solid fa-star fa-spin" style="color: #ffc800;"></i><i class="fa-solid fa-star fa-spin" style="color: #ffc800;"></i><i class="fa-solid fa-star fa-spin" style="color: #D9E4DD;"></i><i class="fa-solid fa-star fa-spin" style="color: #D9E4DD;"></i></li>
-          <li><i class="fa-solid fa-star fa-spin" style="color: #ffc800;"></i><i class="fa-solid fa-star fa-spin" style="color: #ffc800;"></i><i class="fa-solid fa-star fa-spin" style="color: #D9E4DD;"></i><i class="fa-solid fa-star fa-spin" style="color: #D9E4DD;"></i></li>
-          <li><i class="fa-solid fa-star fa-spin" style="color: #ffc800;"></i><i class="fa-solid fa-star fa-spin" style="color: #ffc800;"></i><i class="fa-solid fa-star fa-spin" style="color: #D9E4DD;"></i><i class="fa-solid fa-star fa-spin" style="color: #D9E4DD;"></i></li>
-          <li><i class="fa-solid fa-star fa-spin" style="color: #ffc800;"></i><i class="fa-solid fa-star fa-spin" style="color: #D9E4DD;"></i><i class="fa-solid fa-star fa-spin" style="color: #D9E4DD;"></i><i class="fa-solid fa-star fa-spin" style="color: #D9E4DD;"></i></li>
-          <li><i class="fa-solid fa-star fa-spin" style="color: #ffc800;"></i><i class="fa-solid fa-star fa-spin" style="color: #D9E4DD;"></i><i class="fa-solid fa-star fa-spin" style="color: #D9E4DD;"></i><i class="fa-solid fa-star fa-spin" style="color: #D9E4DD;"></i></li>
-          <li><i class="fa-solid fa-star fa-spin" style="color: #ffc800;"></i><i class="fa-solid fa-star fa-spin" style="color: #D9E4DD;"></i><i class="fa-solid fa-star fa-spin" style="color: #D9E4DD;"></i><i class="fa-solid fa-star fa-spin" style="color: #D9E4DD;"></i></li>
-        </ul>
-      </div>
-      <!-- <img src="./assets/img/skill.png" class="w-100"> -->
-      <p class="w-100 my-4 text-center">学校の授業やインターン、独学で知識を増やしてきました！<br>
-      Pythonが得意で、授業や研究、インターンで使用しています。</p>
-    </div>
-  </div>
-      <!--------------------------------------------------------------------->
-
-  <div class="fixed-background background-4 d-flex justify-content-center align-items-center" id="scroll-3">
-    <div class="w-100 vh-100 opa3 d-flex justify-content-center align-items-center">
-      <h1 data-aos="zoom-in-up">Internship.</h1>
-    </div>
-  </div>
-  <div class="scroll-background background-color-4 p-5" data-aos="fade-up">
-    <div class="row">
-      <div class="col-2 col-md-3 position-relative">
-        <h4 class="position-absolute mt-5 end-0">2022/9</h4>
-        <h4 class="position-absolute bottom-0 end-0">2022/12</h4>
-      </div>
-      <div class="col-10 col-md-9">
-        <h2 class="px-5">株式会社QUICK</h2>
-        <div class="px-2 py-1" style="border-left:solid #fff 1px;">
-          <p>学校紹介のインターンをやらせていただきました。<br>
-          株式会社QUICKは日本経済新聞グループで45年以上、金融・マーケットデータを提供する「金融情報ベンダー」です。</p>
-          <h5>特徴</h5>
-          <p>日経平均株価のリアルタイム算出<br>証券、銀行などに金融市場のインフラとして毎日使用されています。</p>
-          <h5>課題</h5>
-          <p>QUICK Workstation Astra Managerを使用して株価や経済指標の取得や相関分析、回帰分析などを行いました。<br>
-            最終課題ではテーマ株またはグループで設定したテーマについて、株価を変動させる要因を考え、分析する課題でした。<br>
-            分析にはPythonとEXCELを使用して分析。<br>
-            最終グループ発表では、重回帰分析を用いた分析が評価され1位を取りました。
+  <!-- Internship セクション（タイムライン） -->
+  <section id="internship" class="py-20 bg-[#e8c9a3] bg-opacity-30">
+    <div class="max-w-6xl mx-auto px-4" data-sr>
+      <h2 class="text-3xl font-bold text-center mb-12">Internship Experience</h2>
+      <div class="timeline">
+        <!-- タイムラインアイテム（左側） -->
+        <div class="timeline-item left">
+          <div class="text-sm text-[#153243] mb-1">2022/9 - 2022/12</div>
+          <h3 class="text-xl font-bold mb-2">株式会社QUICK</h3>
+          <p class="mb-2">
+            学校紹介のインターンをやらせていただきました。<br />
+            株式会社QUICKは日本経済新聞グループで45年以上、金融・マーケットデータを提供する「金融情報ベンダー」です。
           </p>
-          <a href="https://corporate.quick.co.jp/" class="btn btn--orange btn--radius" target="_blank" rel="noopener noreferrer"> 会社リンク </a>
-          
+          <h4 class="font-semibold mb-1">特徴</h4>
+          <p class="mb-2">
+            日経平均株価のリアルタイム算出<br />
+            証券、銀行などに金融市場のインフラとして毎日使用されています。
+          </p>
+          <h4 class="font-semibold mb-1">課題</h4>
+          <p class="mb-4">
+            QUICK Workstation Astra Manager を使用して株価や経済指標の取得や相関分析、回帰分析などを行いました。<br />
+            最終課題ではテーマ株またはグループで設定したテーマについて、株価を変動させる要因を考え、分析する課題でした。<br />
+            分析には Python と EXCEL を使用して分析。<br />
+            最終グループ発表では、重回帰分析を用いた分析が評価され 1 位を取りました。
+          </p>
+          <a href="https://corporate.quick.co.jp/" target="_blank" 
+             class="inline-block bg-[#457084] text-white px-4 py-2 rounded hover:bg-[#153243] transition-colors">
+            会社リンク
+          </a>
+        </div>
+        <!-- タイムラインアイテム（右側） -->
+        <div class="timeline-item right">
+          <div class="text-sm text-[#153243] mb-1">2023/2 - 現在</div>
+          <h3 class="text-xl font-bold mb-2">Trustart株式会社</h3>
+          <p class="mb-2">
+            有給インターンをやらせてもらっています。<br />
+            Trustart株式会社は社会課題を人とテクノロジーで解決し、社会全体の発展に貢献する会社です。<br />
+            現在は、不動産×テクノロジー×人の力で社会課題を解決していっています。
+          </p>
+          <h4 class="font-semibold mb-1">役割</h4>
+          <p class="mb-2">データチームのリーダーを任せてもらっています。</p>
+          <h4 class="font-semibold mb-1">経験</h4>
+          <p class="mb-4">
+            住所から緯度経度を出すプログラムやデータ自動整備するプログラムなど、様々なプログラムを書き現場で使用してもらっています。<br />
+            作成したデータが商品になったりもしました。数多くの実務経験を学んでいます。
+          </p>
+          <a href="https://www.trustart.co.jp/" target="_blank" 
+             class="inline-block bg-[#457084] text-white px-4 py-2 rounded hover:bg-[#153243] transition-colors">
+            会社リンク
+          </a>
+        </div>
+        <!-- タイムラインアイテム（左側） -->
+        <div class="timeline-item left">
+          <div class="text-sm text-[#153243] mb-1">2023/7 - 2025/3</div>
+          <h3 class="text-xl font-bold mb-2">株式会社ACES</h3>
+          <p class="mb-2">
+            有給インターンをやらせてもらっています。<br />
+            ACESは、アルゴリズムを用いて事業開発を行う AI 事業会社です。<br />
+            AI アルゴリズムを用いて属人化しているヒトの知見や業務をデジタル化を目指している会社です。
+          </p>
+          <h4 class="font-semibold mb-1">役割</h4>
+          <p class="mb-2">Delta/PE</p>
+          <h4 class="font-semibold mb-1">経験</h4>
+          <p class="mb-4">
+            論文のデータセット再現、検証、検証記事作成
+          </p>
+          <a href="https://acesinc.co.jp/" target="_blank" 
+             class="inline-block bg-[#457084] text-white px-4 py-2 rounded hover:bg-[#153243] transition-colors">
+            会社リンク
+          </a>
+        </div>
+        <!-- タイムラインアイテム（右側） -->
+        <div class="timeline-item right">
+          <div class="text-sm text-[#153243] mb-1">2025/4 - 現在</div>
+          <h3 class="text-xl font-bold mb-2">製造業</h3>
+          <p class="mb-2">
+            
+          </p>
         </div>
       </div>
-      
-      <div class="col-2 col-md-3 my-5 position-relative">
-        <h4 class="position-absolute mt-5 end-0">2023/2</h4>
-        <h4 class="position-absolute bottom-0 end-0">現在</h4>
-      </div>
-      <div class="col-10 col-md-9 my-5">
-        <h2 class="px-5">Trustart株式会社</h2>
-        <!-- internでやっていることを詳しく書く -->
-        <div class="px-2 py-1" style="border-left:solid #fff 1px;">
-          <p>有給インターンをやらせてもらっています。<br>
-            Trustart株式会社は社会課題を人とテクノロジーで解決し、社会全体の発展に貢献する会社です。<br>
-            現在は、不動産×テクノロジー×人の力で社会課題を解決していっています。</p>
-            <h4>役割</h4>
-            <p>データチームのリーダーを任せてもらっています。</p>
-            <h4>経験</h4>
-            <p>住所から緯度経度を出すプログラムやデータ自動整備するプログラムなど、様々なプログラムを書き現場で使用してもらっています。<br>
-            作成したデータが商品になったりもしました。数多くの実務経験を学んでいます。</p>
-            <a href="https://www.trustart.co.jp/" class="btn btn--orange btn--radius" target="_blank" rel="noopener noreferrer"> 会社リンク </a>
-        </div>
-      </div>
+    </div>
+  </section>
 
-      <div class="col-2 col-md-3 my-5 position-relative">
-        <h4 class="position-absolute mt-5 end-0">2023/7</h4>
-        <h4 class="position-absolute bottom-0 end-0">現在</h4>
-      </div>
-      <div class="col-10 col-md-9 my-5">
-        <h2 class="px-5">株式会社ACES</h2>
-        <!-- internでやっていることを詳しく書く -->
-        <div class="px-2 py-1" style="border-left:solid #fff 1px;">
-          <p>有給インターンをやらせてもらっています。<br>
-            ACESは、アルゴリズムを用いて事業開発を行うAI事業会社です。<br>
-            AIアルゴリズムを用いて属人化しているヒトの知見や業務をデジタル化を目指している会社です。
+  <!-- Research セクション -->
+  <section id="research" class="py-20">
+    <div class="max-w-6xl mx-auto px-4" data-sr>
+      <h2 class="text-3xl font-bold text-center mb-12">Research to Date</h2>
+      <!-- 1年次 -->
+      <h3 class="text-2xl font-semibold mb-6">1年次</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        <!-- カード 1 -->
+        <div class="bg-white rounded-lg shadow overflow-hidden">
+          <div class="aspect-w-16 aspect-h-9">
+            <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSnbyGltTmiqPzPoazSDqdWfqMtWdABw9EulbaLDRTlo-0Y1YYvZGOtBVvA5uZ0feQZwDfnndiZ0-Zh/embed?start=true&loop=true&delayms=3000"
+                    class="w-full" allowfullscreen></iframe>
+          </div>
+          <div class="p-6 text-[#153243]">
+            <h4 class="text-xl font-bold mb-2">ドット絵の投稿サイト</h4>
+            <p class="mb-4">
+              初めて Python を使用して WEB アプリを作成。<br />
+              Django を１から学びドット絵の投稿サイトを作成。<br />
+              このとき、データベースに付いての知識が付きました。
             </p>
-            <h4>役割</h4>
-            <p>Delta/PE</p>
-            <h4>経験</h4>
-            <p>論文のデータセット再現、検証、検証記事作成</p>
-            <a href="https://acesinc.co.jp/" class="btn btn--orange btn--radius" target="_blank" rel="noopener noreferrer"> 会社リンク </a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="fixed-background background-5 d-flex justify-content-center align-items-center" id="scroll-4">
-    <div class="w-100 vh-100 opa4 d-flex justify-content-center align-items-center">
-      <h1 data-aos="zoom-in-up">Research to date.</h1>
-    </div>
-  </div>
-
-  <div class="scroll-background background-color-5 p-5" data-aos="">
-    <div class="container">
-      <h1 class="mt-5 mb-4 border-bottom">1年次</h1>
-      <div class="card mb-3">
-        <div class="row g-0">
-          <div class="col-md-6">
-            <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSnbyGltTmiqPzPoazSDqdWfqMtWdABw9EulbaLDRTlo-0Y1YYvZGOtBVvA5uZ0feQZwDfnndiZ0-Zh/embed?start=true&loop=true&delayms=3000" class="w-100" style="aspect-ratio:16/9;" frameborder="0" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+            <div class="flex space-x-2">
+              <span class="bg-[#e8c9a3] text-[#153243] px-2 py-1 rounded text-sm">Django</span>
+              <span class="bg-[#e8c9a3] text-[#153243] px-2 py-1 rounded text-sm">HTML/CSS</span>
+            </div>
           </div>
-          <div class="col-md-6">
-            <div class="card-body">
-              <h4 class="card-title mb-3">ドット絵の投稿サイト</h4>
-              <span class="px-3 py-1 border border-2 rounded-pill small" style="border-color: rgb(232, 232, 166)!important;">Django</span><span class="px-3 py-1 mx-1 border border-2 rounded-pill small" style="border-color: rgb(232, 232, 166)!important;">HTML.CSS</span>
-              <p class="card-text mt-3">初めてPythonを使用してWEBアプリを作成。<br>
-                Djangoを１から学びドット絵の投稿サイトを作成。<br>
-                このとき、データベースに付いての知識が付きました。</p>
+        </div>
+        <!-- カード 2 -->
+        <div class="bg-white rounded-lg shadow overflow-hidden">
+          <div class="aspect-w-16 aspect-h-9">
+            <img src="assets/img/club.png" alt="Club" class="w-full h-full object-cover" />
+          </div>
+          <div class="p-6 text-[#153243]">
+            <h4 class="text-xl font-bold mb-2">サークル紹介サイト</h4>
+            <p class="mb-4">
+              PHP を使い、大学のサークル紹介ページを研究室のグループで作成。<br />
+              役割は詳細画面のフロントエンドを担当しました。<br />
+              写真は実際に作ったページの写真です。<br />
+              フレームワークなどは使用せずに作成。
+            </p>
+            <div class="flex space-x-2">
+              <span class="bg-[#e8c9a3] text-[#153243] px-2 py-1 rounded text-sm">PHP</span>
+              <span class="bg-[#e8c9a3] text-[#153243] px-2 py-1 rounded text-sm">HTML/CSS</span>
             </div>
           </div>
         </div>
       </div>
-  
-  
-      <div class="card mb-3">
-        <div class="row g-0">
-          <div class="col-md-6 overflow-auto" style="aspect-ratio:16/9;">
-            <img src="assets/img/club.png" class="w-100">
+      <!-- 1年次 カード 3 -->
+      <div class="grid grid-cols-1 gap-8 mb-12">
+        <div class="bg-white rounded-lg shadow overflow-hidden">
+          <div class="aspect-w-16 aspect-h-9">
+            <img src="assets/img/ichikodo.png" alt="Online Shop" class="w-full h-full object-cover" />
           </div>
-          <div class="col-md-6">
-            <div class="card-body">
-              <h4 class="card-title mb-3">サークル紹介サイト</h4>
-              <span class="px-3 py-1 border border-2 rounded-pill small" style="border-color: rgb(232, 232, 166)!important;">PHP</span><span class="px-3 py-1 mx-1 border border-2 rounded-pill small" style="border-color: rgb(232, 232, 166)!important;">HTML.CSS</span>
-              <p class="card-text mt-3">PHPを使い、大学のサークル紹介ページを研究室のグループで作成。<br>
-                役割は詳細画面のフロントエンドを担当しました。<br>
-                写真は実際に作ったページの写真です。<br>
-                フレームワークなどは使用せずに作成。</p>
+          <div class="p-6 text-[#153243]">
+            <h4 class="text-xl font-bold mb-2">オンラインショップ</h4>
+            <p class="mb-4">
+              祖父のオンラインショップをお店のイメージに合うデザインに変更。
+            </p>
+            <div class="flex space-x-2">
+              <span class="bg-[#e8c9a3] text-[#153243] px-2 py-1 rounded text-sm">HTML/CSS</span>
             </div>
           </div>
         </div>
       </div>
-
-      <div class="card mb-3">
-        <div class="row g-0">
-          <div class="col-md-6 overflow-auto" style="aspect-ratio:16/9;">
-            <img src="assets/img/ichikodo.png" class="w-100">
+      <!-- 2年次 -->
+      <h3 class="text-2xl font-semibold mb-6">2年次</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- カード 4 -->
+        <div class="bg-white rounded-lg shadow overflow-hidden">
+          <div class="aspect-w-16 aspect-h-9">
+            <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSrMF3VLJ3t9oRALBJYPP6nafEqu0mueAmFjJ1LuYI0t6qbvbhFzx_y-V2eWMpYIQ/embed?start=true&loop=true&delayms=3000"
+                    class="w-full" allowfullscreen></iframe>
           </div>
-          <div class="col-md-6">
-            <div class="card-body">
-              <h4 class="card-title mb-3">オンラインショップ</h4>
-              <span class="px-3 py-1 border border-2 rounded-pill small" style="border-color: rgb(232, 232, 166)!important;">HTML.CSS</span>
-              <p class="card-text mt-3">祖父のオンラインショップをお店のイメージに合うデザインに変更。</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <h1 class="mt-5 mb-4 border-bottom">2年次</h1>
-      <div class="card mb-3 ">
-        <div class="row g-0">
-          <div class="col-md-6">
-            <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSrMF3VLJ3t9oRALBJYPP6nafEqu0mueAmFjJ1LuYI0t6qbvbhFzx_y-V2eWMpYIQ/embed?start=true&loop=true&delayms=3000" class="w-100" style="aspect-ratio:16/9;" frameborder="0" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
-          </div>
-          <div class="col-md-6">
-            <div class="card-body">
-              <h4 class="card-title mb-3">画像処理</h4>
-              <span class="px-3 py-1 border border-2 rounded-pill small" style="border-color: rgb(232, 232, 166)!important;">Python</span><span class="px-3 py-1 mx-1 border border-2 rounded-pill small" style="border-color: rgb(232, 232, 166)!important;">Pytorch</span>
-              <p class="card-text mt-3">宅配業者のトラックへの積み込みにおいて、経験による積み方の差異が生じる問題を解決するためのシステムを開発しています。現在は、箱の大きさを推定するステップの研究を行っています。具体的には単眼カメラ画像とレーザー距離計で計測したデータを用いて箱の大きさを推測しています。使用している技術はKeypoint R-CNN,物体検知です。</p>
-              <h5 class="card-text">IPSJ第85回全国大会(2023/02)</h5>
-              <p class="card-text">カメラ画像から箱の大きさを推定する時、Keypoint R-CNN を⽤いて直⽅体の各頂点を推定する論文を作成しました。<br>
-              人体用のモデルをファインチューニングし、独自の箱用キーポイントを定義し行った。</p>
-              <a href="https://drive.google.com/file/d/1ZTvEkHWoE9zXYfo59C9dHwe0U6cOcgl6/view?usp=sharing" class="btn btn--orange btn--radius" target="_blank" rel="noopener noreferrer"> PDF </a>
-              <h5 class="card-text mt-5">DEIM2023（共同著者）</h5>
-              <p class="card-text">物体検出手法を活用したキーポイント推定手法，及び提案手法を用いた直方体の頂点検出についての論文。
-              </p>
-              <a href="https://proceedings-of-deim.github.io/DEIM2023/4a-2-3.pdf" class="btn btn--orange btn--radius" target="_blank" rel="noopener noreferrer"> PDF </a>
+          <div class="p-6 text-[#153243]">
+            <h4 class="text-xl font-bold mb-2">画像処理</h4>
+            <p class="mb-4">
+              宅配業者のトラックへの積み込みにおいて、経験による積み方の差異が生じる問題を解決するためのシステムを開発しています。現在は、箱の大きさを推定するステップの研究を行っています。<br />
+              具体的には単眼カメラ画像とレーザー距離計で計測したデータを用いて箱の大きさを推測しています。<br />
+              使用している技術は Keypoint R-CNN, 物体検知です。
+            </p>
+            <p class="mb-2 font-semibold">IPSJ第85回全国大会(2023/02)</p>
+            <p class="mb-4">
+              カメラ画像から箱の大きさを推定する時、Keypoint R-CNN を用いて直方体の各頂点を推定する論文を作成しました。<br />
+              人体用のモデルをファインチューニングし、独自の箱用キーポイントを定義し行った。
+            </p>
+            <a href="https://drive.google.com/file/d/1ZTvEkHWoE9zXYfo59C9dHwe0U6cOcgl6/view?usp=sharing" 
+               target="_blank" 
+               class="inline-block bg-[#457084] text-white px-4 py-2 rounded hover:bg-[#153243] transition-colors mb-2">
+              PDF
+            </a>
+            <p class="mb-2 font-semibold">DEIM2023（共同著者）</p>
+            <p class="mb-4">
+              物体検出手法を活用したキーポイント推定手法，及び提案手法を用いた直方体の頂点検出についての論文。
+            </p>
+            <a href="https://proceedings-of-deim.github.io/DEIM2023/4a-2-3.pdf" 
+               target="_blank" 
+               class="inline-block bg-[#457084] text-white px-4 py-2 rounded hover:bg-[#153243] transition-colors">
+              PDF
+            </a>
+            <div class="mt-4 flex space-x-2">
+              <span class="bg-[#e8c9a3] text-[#153243] px-2 py-1 rounded text-sm">Python</span>
+              <span class="bg-[#e8c9a3] text-[#153243] px-2 py-1 rounded text-sm">Pytorch</span>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <div class="fixed-background background-6 d-flex justify-content-center align-items-center" id="scroll-5">
-    <div class="w-100 vh-100 opa4 d-flex justify-content-center align-items-center">
-      <h1 data-aos="zoom-in-up">Qualification list.</h1>
+  <!-- Qualifications セクション -->
+  <section id="qualifications" class="py-20 bg-[#e8c9a3] bg-opacity-30">
+    <div class="max-w-6xl mx-auto px-4" data-sr>
+      <h2 class="text-3xl font-bold text-center mb-12">Qualification List</h2>
+      <ul class="max-w-md mx-auto space-y-4 text-lg text-[#153243]">
+        <li class="border-b pb-2 border-[#153243]">AI実装検定A級</li>
+        <li class="border-b pb-2 border-[#153243]">データサイエンス数学ストラテジスト中級</li>
+      </ul>
     </div>
-  </div>
-  <div class="scroll-background background-color-6 p-5" data-aos="fade-up">
-    <ul class="font-color w-75 mx-auto">
-      <li>AI実装検定A級</li>
-      <li>データサイエンス数学ストラテジスト中級</li>
-    </ul>
-  </div>
+  </section>
 
-  <!-- </div> -->
+  <!-- Contact セクション -->
+  <section id="contact" class="py-20">
+    <div class="max-w-6xl mx-auto px-4" data-sr>
+      <h2 class="text-3xl font-bold text-center mb-12">Contact</h2>
+      <div class="w-full">
+        <iframe src="https://tayori.com/form/5b513637def4a3ee88db52b4ff3e96765c83fbbb/" 
+                class="w-full h-96" frameborder="0"></iframe>
+      </div>
+    </div>
+  </section>
 
-  <!--お問い合わせ-->
-    <div class="w-100 vh-100"><iframe src="https://tayori.com/form/5b513637def4a3ee88db52b4ff3e96765c83fbbb/" width="100%" height="100%"></iframe></div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <!-- Footer -->
+  <footer class="bg-[#153243] py-6">
+    <div class="max-w-6xl mx-auto px-4 text-center text-[#fff1d9]">
+      &copy; 2023 Katsumori Okazaki. All rights reserved.
+    </div>
+  </footer>
 
-    <!-- bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <!-- フォント用 -->
-    <script src="./assets/js/index.min.js"></script>
-    <!-- aos. jsファイルを読み込む -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-      // ふんわり用
-      AOS.init({
-        offset: 300,
-        delay: 100,
-        duration: 500,
-        easing: 'ease-in',
-        once: true,
+  <!-- カスタムJS -->
+  <script>
+    // モバイルメニューのトグル
+    const btn = document.querySelector('.mobile-menu-button');
+    const menu = document.querySelector('.mobile-menu');
+    btn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+
+    // Typed.js でヒーローテキストのタイプライターアニメーション
+    document.addEventListener('DOMContentLoaded', () => {
+      new Typed('#hero-text h1', {
+        strings: ["Welcome to my Portfolio!"],
+        typeSpeed: 50,
+        backSpeed: 25,
+        loop: false
       });
-    </script>
-    <script>
-      ityped.init(document.querySelector("#ityped-1"), {
-      strings: ['Welcom to my Portfolio!','ようこそ私のポートフォリオへ!'],
-      loop: false,         //カーソルとして表示させる文字を" "内に指定
-      })
-    </script>
-  </body>
+    });
 
+    // ScrollReveal によるスクロールアニメーション
+    ScrollReveal().reveal('[data-sr]', {
+      distance: '20px',
+      duration: 800,
+      easing: 'ease-in-out',
+      origin: 'bottom',
+      interval: 200
+    });
+  </script>
+</body>
 </html>
-
